@@ -1,0 +1,30 @@
+name: Publish to NuGet
+
+on:
+  push:
+    branches: main
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+      - run: dotnet tool install -g gitversion.tool --version 5.10.3
+      - run: echo "VERSION=$(dotnet-gitversion -showvariable NuGetVersion)" >> $GITHUB_ENV
+      - run: dotnet restore
+      - run: dotnet build -c Release --no-restore
+      - run: dotnet test
+      - run: dotnet pack -c Release -p:PackageVersion=$VERSION
+      - run: dotnet nuget push touch/bin/Release/dotsef-touch.$VERSION.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.API_KEY_NUGET }}
+      - run: git config user.email "${{ github.action }}.${{ github.run_id }}@dotsef.com"
+      - run: git config user.name "Action '${{ github.action }}' Run ${{ github.run_id }}"
+      - run: git tag -a v$VERSION -m "Automatic tag v$VERSION by Github Actions ${{ github.run_id }}"
+      - run: git push origin v$VERSION
