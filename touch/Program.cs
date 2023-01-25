@@ -7,6 +7,10 @@ foreach (var file in args)
         try
         {
             var path = Path.GetFullPath(file);
+
+            if (File.Exists(path))
+                return;
+
             try
             {
                 if (Path.GetDirectoryName(path) is string dir)

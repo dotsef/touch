@@ -3,20 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "touch", "touch\touch.csproj", "{13A05DA3-14E8-446A-97C2-02A044F1326B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touch", "touch\touch.csproj", "{13A05DA3-14E8-446A-97C2-02A044F1326B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{45081054-B1BD-421D-B85B-A7D0AC2A6F64}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		GitVersion.yml = GitVersion.yml
+		global.json = global.json
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F9E386B7-3B9C-4663-95D0-58AAED4D701F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{83F50EF6-3929-48AF-9569-E15BA290830B}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{13A05DA3-14E8-446A-97C2-02A044F1326B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13A05DA3-14E8-446A-97C2-02A044F1326B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A05DA3-14E8-446A-97C2-02A044F1326B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A05DA3-14E8-446A-97C2-02A044F1326B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83F50EF6-3929-48AF-9569-E15BA290830B} = {F9E386B7-3B9C-4663-95D0-58AAED4D701F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1F5A755-569C-4250-BE5C-6101DEF1CCDB}
 	EndGlobalSection
 EndGlobal
