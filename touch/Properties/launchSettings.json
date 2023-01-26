@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "touch": {
-      "commandName": "Project",
-      "commandLineArgs": "testfile1.txt ../testfile2.txt C:/dev/test/testfile3.txt test/testfile4.txt"
-    }
-  }
-}
